@@ -8,5 +8,5 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface BookRepository extends PagingAndSortingRepository<Book, Long> {
     Iterable<Book> findAllByCategory(Category category);
-    Page<Book> findAllByCategoryAndName(String category, String name, Pageable pageable);
+    Page<Book> findAllByCategoryContaining(String category, Pageable pageable);
 }

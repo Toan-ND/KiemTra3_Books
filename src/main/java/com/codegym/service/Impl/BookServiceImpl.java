@@ -35,11 +35,11 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Iterable<Book> findAllByCategory(Category category) {
-        return null;
+        return bookRepository.findAllByCategory(category);
     }
 
     @Override
-    public Page<Book> findAllByCategoryContaining(String category, String name, Pageable pageable) {
-        return null;
+    public Page<Book> findAllByCategoryContaining(String category, Pageable pageable) {
+        return bookRepository.findAllByCategoryContaining(category, pageable);
     }
 }

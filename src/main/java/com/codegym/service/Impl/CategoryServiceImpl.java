@@ -5,6 +5,8 @@ import com.codegym.repository.CategoryRepository;
 import com.codegym.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 public class CategoryServiceImpl implements CategoryService {
     @Autowired
     CategoryRepository categoryRepository;
@@ -21,11 +23,11 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void save(Category category) {
-categoryRepository.save(category);
+        categoryRepository.save(category);
     }
 
     @Override
     public void delete(Long id) {
-categoryRepository.delete(id);
+        categoryRepository.delete(id);
     }
 }

@@ -37,7 +37,7 @@
             <td>Category:</td>
             <td>
                 <select name="x">
-                    <option th:each="p : ${catedorys}"
+                    <option th:each="p : ${categorys}"
                             th:value="${p.id}"
                             th:text="${p.name}"
                             th:selected="(${p.id} == *{category.id})"></option>

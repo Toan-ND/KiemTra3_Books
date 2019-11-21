@@ -1,5 +1,7 @@
 package com.codegym.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,11 +17,13 @@ public class Book {
     private double price;
     private String noidung;
 
-@ManyToOne
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Category_id")
     private Category category;
 
-public Book(){}
+    public Book() {
+    }
 
     public Book(String name, String dateOfPurchase, String author, double price, Category category) {
         this.name = name;

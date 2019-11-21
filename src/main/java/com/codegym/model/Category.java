@@ -1,7 +1,10 @@
 package com.codegym.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "category")
@@ -13,12 +16,13 @@ public class Category {
     private String name;
     private String description;
 
-    @OneToMany(targetEntity = Book.class)
-    private List<Book> books;
+    @JsonManagedReference
+    @OneToMany(targetEntity = Book.class, fetch = FetchType.EAGER)
+    private Set<Book> books;
 
     public Category(){}
 
-    public Category(String name, String description, List<Book> books) {
+    public Category(String name, String description, Set<Book> books) {
         this.name = name;
         this.description = description;
         this.books = books;
@@ -48,11 +52,11 @@ public class Category {
         this.description = description;
     }
 
-    public List<Book> getBooks() {
+    public Set<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(List<Book> books) {
+    public void setBooks(Set<Book> books) {
         this.books = books;
     }
 }

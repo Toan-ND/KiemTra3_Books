@@ -31,7 +31,7 @@ public class BookController {
     public ModelAndView showListBooks(@RequestParam("s") Optional<String> s, @PageableDefault(size = 10) Pageable pageable) {
         Page<Book> books;
         if (s.isPresent()) {
-            books = bookService.findAllByCategoryContaining(s.get(), s.get(), pageable);
+            books = bookService.findAllByCategoryContaining(s.get(), pageable);
         } else {
             books = bookService.findAll(pageable);
         }
@@ -57,7 +57,7 @@ public class BookController {
     }
 
     @GetMapping("/edit-book/{id}")
-    public ModelAndView showEditForm(@PathVariable("book") Long id) {
+    public ModelAndView showEditForm(@PathVariable Long id) {
         Book book = bookService.findById(id);
         if (book != null) {
             ModelAndView modelAndView = new ModelAndView("/book/edit");
@@ -79,7 +79,7 @@ public class BookController {
     }
 
     @GetMapping("/delete-book/{id}")
-    public ModelAndView deleteForm(@PathVariable("edit") Long id) {
+    public ModelAndView deleteForm(@PathVariable Long id) {
         Book book = bookService.findById(id);
         if (book != null) {
             ModelAndView modelAndView = new ModelAndView("/book/delete");

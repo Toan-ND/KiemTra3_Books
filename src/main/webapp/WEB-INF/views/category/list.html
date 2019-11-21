@@ -9,12 +9,13 @@
 <p>
     <a href="/create-category">Add New Category</a>
 </p>
+Language: <a href="?lang=en">English</a> | <a href="?lang=vi">Tieng Viet</a>
 <table border="1">
     <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Edit</th>
-        <th>Delete</th>
+        <td th:text="#{ca.name}"></td>
+        <td th:text="#{ca.description}"></td>
+        <td th:text="#{ca.edit}"></td>
+        <td th:text="#{ca.delete}"></td>
     </tr>
     <th:block th:each="x: ${categorys}">
         <tr>

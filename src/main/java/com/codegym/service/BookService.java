@@ -18,5 +18,5 @@ public interface BookService {
 
     Iterable<Book> findAllByCategory(Category category);
 
-    Page<Book> findAllByCategoryContaining(String category,String name, Pageable pageable);
+    Page<Book> findAllByCategoryContaining(String category, Pageable pageable);
 }
